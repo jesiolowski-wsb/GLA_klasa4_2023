@@ -1,0 +1,35 @@
+import requests
+
+test = requests.get("http://random-word-api.herokuapp.com/word")
+
+w = test.json()[0]
+d = len(w)
+p = 11
+l = ""
+while p > 0 and w != l:
+    print(f"Pozostało {p} prób")
+    n = 0
+    for c in w:
+        if c in l:
+            print(c, end=" ")
+        else:
+            print("_", end=" ")
+            n += 1
+    if n == 0:
+        print("\nWygrałeś!")
+        break
+    else:
+        print("\nPodaj literę:")
+    z = input().lower()
+    if len(z) > 1:
+        print("Podałeś za dużo znaków")
+    else:
+        if z in l:
+            print("Już podałeś wcześniej taką literę")
+        else:
+            l += z
+            if z not in w:
+                p -= 1
+                print(f"Nie ma takiej litery. Zostało {p} prób")
+if p == 0:
+    print(f"Przegrałeś. Słowo to {w}")
