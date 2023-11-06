@@ -1,0 +1,31 @@
+wejscie = open('ekodom.txt', 'r')
+
+ekodom=[]
+
+for i in wejscie:
+    i=i.split()
+    ekodom.append(i)
+print(ekodom)
+
+licznik=0
+maxi=0
+data_koniec=0
+data_poczatek=0
+
+for i in range(len(ekodom)):
+    #print(ekodom[i][1])
+    if ekodom[i][1]=='0':
+        licznik+=1
+    else:
+        licznik=0
+    if licznik>maxi:
+        maxi=licznik
+        data_koniec=ekodom[i][0]
+        data_poczatek=ekodom[i+1-licznik][0]
+
+
+print(maxi)
+print(data_koniec)
+print(data_poczatek)
+
+
