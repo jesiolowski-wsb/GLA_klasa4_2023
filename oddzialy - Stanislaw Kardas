@@ -1,0 +1,59 @@
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <vector>
+using namespace std;
+
+ifstream plik("oddzialy.txt");
+int K[44][44];
+
+int main()
+{
+	for (int i = 0; i < 44; i++)
+	{
+		for (int j = 0; j < 44; j++) K[i][j] = 0;
+	}
+	int x, y;
+	int s = 0; // straty
+	int opz = 0; // oddziały poza zasięgiem
+	int d; // kwadrat dystansu
+	int dmax = 0; // kwadrat maksymalnego dystansu
+	for (int i = 0; i < 50; i++)
+	{
+		plik >> x >> y;
+		d = x * x + y * y; // operujemy na kwadratach dystansu!!!!
+		if (d < 1 * 1 || d > 20 * 20) // poza zasiegiem
+		{
+			opz++;
+		}
+		else if (d == 1 * 1 || d == 20 * 20) // rowna zasiegowi
+		{
+			s += 25;
+		}
+		else // w zasiegu
+		{
+			s += 100;
+		}
+		if (d > dmax) dmax = d;
+		K[x + 22][y + 22] += 100;
+	}
+	int ss = 0; // straty podpunkt 3
+	int ssmax = 0;
+	int xmax, ymax;
+	for (int i = 2; i < 42; i++)
+	{
+		for (int j = 2; j < 42; j++)
+		{
+			ss = (K[i][j + 2] / 4) + K[i - 1][j + 1] + K[i][j + 1] + K[i + 1][j + 1] + (K[i - 2][j] / 4) + K[i - 1][j] + K[i][j] + K[i + 1][j] + (K[i + 2][j] / 4) + K[i - 1][j - 1] + K[i][j - 1] + K[i + 1][j - 1] + (K[i][j - 2] / 4);
+			if (ss > ssmax)
+			{
+				ssmax = ss;
+				xmax = i - 22;
+				ymax = j - 22;
+			}
+		}
+	}
+	cout << s << " " << opz << endl;
+	cout << setprecision(5) << sqrt(dmax) + 0.001 << endl;
+	cout << ssmax << " " << xmax << " " << ymax << endl;
+}
