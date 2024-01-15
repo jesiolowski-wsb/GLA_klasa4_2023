@@ -1,0 +1,29 @@
+def prim(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, int((n ** 0.5) + 1), 2):
+        if n % i == 0:
+            return False
+    return True
+
+plik = open("liczby.txt", "r")
+liczby = plik.readlines()
+plik.close()
+
+wyniki = []
+
+for liczba in liczby:
+    liczba = int(liczba)
+    ile = 0
+    for i in range(2, liczba // 2 + 1):
+        if prim(int(i)) and prim(int(liczba) - int(i)):
+            ile += 1
+    if ile > 0:
+        wyniki.append((liczba, ile))
+
+print(max(wyniki, key=lambda x: x[1]))
+print(min(wyniki, key=lambda x: x[1]))
