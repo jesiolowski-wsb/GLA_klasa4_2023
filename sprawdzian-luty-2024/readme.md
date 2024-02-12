@@ -33,7 +33,6 @@ W pliku `numery.txt` zapisanych jest 1000 numerów telefonów (jeden numer na wi
 Zadania do wykonania:
 1. Podaj liczbę numerów telefonów, które zawierają co najmniej trzy te same cyfry obok siebie (np. 111, 222 itd.).
 2. Wszystkie numery telefonów o tej samej liczbie cyfr tworzą jedną "rodzinę". Podaj liczbę niepustych rodzin numerów telefonów.
-3. Każdą rodzinę numerów telefonów zapisz w oddzielnym wierszu pliku `rodziny_numerow.txt`. Numery każdej rodziny wymień w kolejności rosnącej, oddzielone jedną spacją.
 
 ### SEKCJA C: OOP (object-oriented-programming)
 1. Stwórz klasę **BankAccount** odpowiedzialną za konto bankowe z metodami dostępowymi:
