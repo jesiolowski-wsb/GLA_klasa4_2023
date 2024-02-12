@@ -1,0 +1,52 @@
+'''
+*
+***
+ |
+dla parametru 8 zaś,
+
+       *
+      ***
+     *****
+    *******
+   *********
+  ***********
+ *************
+***************
+       |
+'''
+
+def rysuj(n):
+    for i in range(n+1):
+        print((" "*(n-i)+"*"*i)+("*"*(i-1)))
+    print(" "*(n-1)+"|")
+
+
+#rysuj(8)
+
+
+wejscie=open("numery.txt","r")
+napisy=[]
+for i in wejscie:
+    napisy.append(i.strip())
+print(napisy)
+
+
+from collections import Counter
+import re
+def czy_3(n):
+    x = bool(re.search(r"(\d)\1\1", n))
+    return(x)
+
+licznik=0
+for i in napisy:
+    if czy_3(i):
+        licznik+=1
+print(licznik)
+
+dlugosc=[]
+for i in napisy:
+    dlugosc.append(len((i)))
+print(dlugosc)
+
+print(len(Counter(dlugosc)))
+
