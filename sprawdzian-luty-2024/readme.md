@@ -26,9 +26,11 @@ ergo: 1 parametr na wejscie (i w zaleznosci od niego tyle poziomów choinki). Do
 ### SEKCJA B: Wyrażenia regularne
 W pliku `numery.txt` zapisanych jest 1000 numerów telefonów (jeden numer na wiersz). Numery telefonów są zapisane bez żadnych dodatkowych znaków (tylko cyfry). Maksymalna długość numeru telefonicznego to 15 cyfr. Przykładowe numery w tym pliku to:
 
+```
 8532920888
 6105000455181
 646454074
+```
 
 Zadania do wykonania:
 1. Podaj liczbę numerów telefonów, które zawierają co najmniej trzy te same cyfry obok siebie (np. 111, 222 itd.).
