@@ -2,8 +2,8 @@
 
 > Uwaga: **Bonusowe** punkty za kreatywnośc w rozwiązywaniu (dodanie kolorków, ascii-art, obsługi błędów, eksportu do pliku, dodatkowych funkcjonalności, elementów animacji - cokolwiek wpadnie wam do głowy :) )
 
-### Algorytmy
-6. stwórz funkcjonalność *rysuj_choinkę* która dla wywołania *rysuj_choinkę(2)* na ekranie wydrukuje
+### SEKCJA A: Algorytmy
+1. stwórz funkcjonalność *rysuj_choinkę* która dla wywołania *rysuj_choinkę(2)* na ekranie wydrukuje
 ```
  *
 ***
@@ -23,7 +23,7 @@ dla parametru 8 zaś,
 ```
 ergo: 1 parametr na wejscie (i w zaleznosci od niego tyle poziomów choinki). Dodatkowo 'pień' choinki na 1 znak
 
-### Wyrażenia regularne
+### SEKCJA B: Wyrażenia regularne
 W pliku `numery.txt` zapisanych jest 1000 numerów telefonów (jeden numer na wiersz). Numery telefonów są zapisane bez żadnych dodatkowych znaków (tylko cyfry). Maksymalna długość numeru telefonicznego to 15 cyfr. Przykładowe numery w tym pliku to:
 
 8532920888
@@ -35,7 +35,7 @@ Zadania do wykonania:
 2. Wszystkie numery telefonów o tej samej liczbie cyfr tworzą jedną "rodzinę". Podaj liczbę niepustych rodzin numerów telefonów.
 3. Każdą rodzinę numerów telefonów zapisz w oddzielnym wierszu pliku `rodziny_numerow.txt`. Numery każdej rodziny wymień w kolejności rosnącej, oddzielone jedną spacją.
 
-### OOP (object-oriented-programming)
+### SEKCJA C: OOP (object-oriented-programming)
 1. Stwórz klasę **BankAccount** odpowiedzialną za konto bankowe z metodami dostępowymi:
 - deposit
 - withdraw
