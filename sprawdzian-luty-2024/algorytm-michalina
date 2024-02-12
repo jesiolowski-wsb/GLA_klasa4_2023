@@ -1,0 +1,7 @@
+
+def rysuj_choinke(x):
+    for i in range(x+1):
+        y = x - i
+        print((y*" " + i*"*") + ((i-1)*"*"))
+    print(y*" " + "|".center(x+x))
+print(rysuj_choinke(8))
