@@ -1,0 +1,86 @@
+class BankAccount:
+  def __init__(self, owner, accountBalance):
+    self.owner = owner
+    self.accountBalance = accountBalance
+    self.accountHistory=[]
+
+  def deposit(self,  amount):
+    self.accountBalance += amount
+    self.accountHistory.append
+    return f"Deposit of {amount} was made"
+
+  def withdraw(self, amount):
+    if amount <= self.accountBalance:
+      self.accountBalance -= amount
+      self.accountHistory.append
+      return f"Withdraw of {amount} was made"
+    else:
+      print ("Insufficient funds")
+
+  def get_balance(self):
+    return self.accountBalance
+
+  def __str__(self):
+    return f"Account owner: {self.owner}, account balance: {self.accountBalance}"
+
+class  Bank:
+  def __init__(self,name):
+    self.name = name
+    self.account = []
+
+  def add_account(self, account):
+    self.account.append(account)
+
+  def get_total_balance(self):
+    total_balance = 0
+    for account in self.account:
+      total_balance += account.get_balance()
+      return total_balance
+
+  def __str__(self):
+    return f"Bank {self.name}, number of accounts: {len(self.account)}"
+
+def app():
+  bank = Bank("Bank X")
+
+  account1 = BankAccount("John Smith", 5000)
+  account2 = BankAccount("Jean Black", 10000)
+
+  bank.add_account(account1)
+  bank.add_account(account2)
+
+  while  True:
+    print("Menu:")
+    print("1) Check balance")
+    print("2) Withdraw money")
+    print("3) Deposit money")
+    print("4) Account history")
+    print("5) Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+      print(f"Current account balance:{bank.get_total_balance()}")
+
+    elif choice == "2":
+      amount  = float(input("Enter the amount of money to withdraw: "))
+      account1.deposit(amount)
+      print(account1)
+    elif choice == "3":
+      amount = float(input("Enter the amount of money to deposit: "))
+      account1.withdraw(amount)
+      print(account1)
+
+    elif choice == "4":
+      print("Account history:")
+      for option in account1.accountHistory:
+        print(option)
+
+    elif choice == "5":
+      break
+    else:
+      print("Error. Try again later")
+
+if __name__ == "__main__":
+  app()
+
