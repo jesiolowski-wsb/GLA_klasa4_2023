@@ -1,0 +1,18 @@
+import re
+
+tekst = "(...) Historia przegiegu tranzakcji sklepu X: anna_kowalska@wp.pl zakupił(a) produkt od marcin.lewandowski@gmail.org jakiś czas potem sprzedając go dalej dodając marżę w wysokości 25% tak że produkt wylądował u johnDoe@sample.net. Następnie historia traci klarowność - w bazie mamy informację jedynie o adresie unknown-person@o2.pl"
+
+
+#wyszukiwania i wyświetlania wszystkich adresów e-mail zawartych w danym tekście.
+
+wynik1 = re.findall("[a-z\.]+[a-z]+@+[a-z0-9\.]+[a-z]", tekst)
+print(f"wszystkie adresy e-mail: {wynik1}")
+
+#policzeniu ile ze znalezionych adresów pochodzi z serwisów w Polsce
+#pokazaniu tych adresów
+licznik = 0
+for i in wynik1:
+  if i.endswith("pl"):
+    licznik += 1
+    print(f"polskie adresy: {i}")
+    print(f"liczba polskich adresow: {licznik}")
