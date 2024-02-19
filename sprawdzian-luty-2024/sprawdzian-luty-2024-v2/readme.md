@@ -54,6 +54,13 @@ Oto pseudokod jednego z algorytmów używanych do sortowania:
 ```
 > **_NOTE:_**  Zwróć uwagę na specyfikę działania range vs podany pseudokod
 
+Opis pseudokodu:
+- Algorytm iteruje przez każdy element tablicy arr z zewnętrznej pętli i, która służy do śledzenia liczby przejść przez tablicę.
+- Wewnętrzna pętla j iteruje przez tablicę od początku do n-i-2, co pozwala pominąć elementy, które zostały już posortowane w poprzednich iteracjach.
+- Wewnątrz wewnętrznej pętli, algorytm porównuje każdą parę sąsiadujących elementów. Jeśli element po lewej (arr[j]) jest większy niż element po prawej (arr[j + 1]), to elementy te są zamieniane miejscami.
+
+Zadanie: 
+Napisz implementację algorytmu przedstawionego w pseudokodzie i przekaż do funkcji `[1, 3, 4, 2, 5, 2]`
 
 
 
