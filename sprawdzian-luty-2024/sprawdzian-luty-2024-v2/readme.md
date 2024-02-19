@@ -45,13 +45,15 @@ Oto pseudokod jednego z algorytmów używanych do sortowania:
      Wejście: Tablica arr zawierająca elementy
      Wyjście: Posortowana tablica arr
 
-1. Ustal n jako długość tablicy arr
-2. Dla i od 0 do n-1 wykonaj:
-3.     Dla j od 0 do n-i-2 wykonaj:
-4.         Jeśli arr[j] > arr[j + 1] to:
-5.             Zamień arr[j] z arr[j + 1]
-6. Zwróć posortowaną tablicę arr
+ Ustal n jako długość tablicy arr
+ Dla i od 0 do n-1 wykonaj:
+     Dla j od 0 do n-i-2 wykonaj:
+         Jeśli arr[j] > arr[j + 1] to:
+             Zamień arr[j] z arr[j + 1]
+ Zwróć posortowaną tablicę arr
 ```
+> **_NOTE:_**  Zwróć uwagę na specyfikę działania range vs podany pseudokod
+
 
 
 
