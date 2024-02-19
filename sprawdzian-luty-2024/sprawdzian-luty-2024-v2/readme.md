@@ -12,7 +12,7 @@ tekst = "(...) Historia przegiegu tranzakcji sklepu X: anna_kowalska@wp.pl zakup
 ```
 
 ### 2: zmiana treści wg. wzorca
-Napisz program który używa funkcji sub z modułu re aby zanonimizować numery telefonów w podanym tekście. Program powinien zachować numery kierunkowe krajów (np. +48 dla Polski), ale zastąpić resztę numeru telefonu gwiazdkami * tak, aby ukryć rzeczywiste numery telefonów.
+Napisz program który używa funkcji `sub` z modułu re aby zanonimizować numery telefonów w podanym tekście. Program powinien zachować numery kierunkowe krajów (np. +48 dla Polski), ale zastąpić resztę numeru telefonu gwiazdkami * tak, aby ukryć rzeczywiste numery telefonów.
 
 #### Wymagania:
 
@@ -29,7 +29,6 @@ Kontakt do naszych oddziałów: Warszawa +48 *********, Berlin +49 *********, No
 ```
 
 
-
 #### Podpowiedź
 Frazy /  klucze do wyszukania w dokumentacji to:
 - Raw String Notation
@@ -38,5 +37,6 @@ Frazy /  klucze do wyszukania w dokumentacji to:
 - {}
 - []
 - ?
+- do drugiego parametru funcji `sub` można przesłać inną funkcję
 
 ### Gotowe odpowiedzi wyśllij na githuba umieszczając w bieżącym folderze (tj. sprawdzian-luty-2024) w pliku / plikach ze swoim imieniem i nazwiskiem w nazwie
