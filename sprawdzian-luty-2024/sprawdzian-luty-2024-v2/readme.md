@@ -59,8 +59,9 @@ Opis pseudokodu:
 - Wewnętrzna pętla j iteruje przez tablicę od początku do n-i-2, co pozwala pominąć elementy, które zostały już posortowane w poprzednich iteracjach.
 - Wewnątrz wewnętrznej pętli, algorytm porównuje każdą parę sąsiadujących elementów. Jeśli element po lewej (arr[j]) jest większy niż element po prawej (arr[j + 1]), to elementy te są zamieniane miejscami.
 
-Zadanie: 
+#### Zadanie: 
 Napisz implementację algorytmu przedstawionego w pseudokodzie i przekaż do funkcji `[1, 3, 4, 2, 5, 2]`
+Jako wynik funkcji oczekujemy listy `[1, 2, 2, 3, 4, 5]`
 
 
 
