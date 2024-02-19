@@ -1,0 +1,40 @@
+wejscie=open("eko.txt", "r")
+wyjscie=open("wyniki.txt", "w")
+dane=[]
+for i in wejscie:
+    dane.append(i.split())
+
+retencja_tablica=[]
+data_tablica=[]
+for index, slowo in enumerate(dane):
+    if index>0:
+        data_tablica.append(slowo[0])
+        retencja_tablica.append(int(slowo[1]))
+
+for index in range(1, len(dane)):
+    print(dane[index][0])
+    print(dane[index][1])
+
+ile=0
+ile_max=0
+dat_pierwszego=0
+dat_najdluzszego=0
+dat_najdluzszego_max=0
+for i in range(0,len(retencja_tablica)):
+    if retencja_tablica[i]==0:
+        ile+=1
+        dat_najdluzszego=data_tablica[i]
+    else:
+        ile=0
+    if ile_max<ile:
+        ile_max=ile
+        dat_najdluzszego_max=dat_najdluzszego
+        dat_pierwszego=data_tablica[i-ile_max+1]
+
+wyjscie.write(f"poczatek: {dat_pierwszego}\n")
+wyjscie.write(f"koniec {dat_najdluzszego_max}\n")
+wyjscie.write(f"najdluzszy = {ile_max}")
+
+
+wejscie.close()
+wyjscie.close()
