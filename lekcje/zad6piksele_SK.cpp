@@ -50,8 +50,8 @@ int main()
 		{
 			if (i > 0 && abs(k[i][j] - k[i - 1][j]) > 128) kntrs++;
 			else if (j > 0 && abs(k[i][j] - k[i][j - 1]) > 128) kntrs++;
-			else if (i == 0 && abs(k[i][j] - k[i + 1][j]) > 128) kntrs++;
-			else if (j == 0 && abs(k[i][j] - k[i][j + 1]) > 128) kntrs++;
+			else if (i < 199 && abs(k[i][j] - k[i + 1][j]) > 128) kntrs++;
+			else if (j < 319 && abs(k[i][j] - k[i][j + 1]) > 128) kntrs++;
 		}
 	}
 	cout << "1. Najjasniejszy pixel ma jasnosc " << jmax << " a najciemniejszy " << jmin << endl << "2. " << dell << endl << "3. " << kntrs << endl;
