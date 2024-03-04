@@ -1,0 +1,23 @@
+dane1 =[]
+with open("przyklad.txt", "r") as file:
+  for line in file:
+    dane = line.rstrip().split(" ")
+    dane1.append([int(i) for i in dane])
+
+max_jasnosc = -1
+min_jasnosc = -1
+for i in range(200):
+  for j in range(320):
+    if dane1[i][j] > max_jasnosc or max_jasnosc == -1:
+      max_jasnosc = dane1[i][j]
+    if dane1[i][j] < min_jasnosc or min_jasnosc == -1:
+      min_jasnosc = dane1[i][j]
+      
+print(f"najjasniejszy: {max_jasnosc} , najciemniejszy: {min_jasnosc}")
+
+usun = 0
+for i in range(200):
+  i = int(i)
+  if dane1[i][::] != dane1[i][::-1]:
+    usun +=1
+print(f"najmniejsza liczba wierszy: {usun}")
