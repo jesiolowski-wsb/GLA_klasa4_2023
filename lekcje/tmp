@@ -22,7 +22,7 @@ aaaBBBccc
 ```
 
 Zadania do wykonania:
-1. Podaj liczbę haseł, które są uznawane za słabe ze względu na występowanie trzech takich samych znaków obok siebie (podpowiedź: dowolny znak to (.) ) **lub** prostych sekwencji cyfr/ liter.
+1. Podaj liczbę haseł, które są uznawane za słabe ze względu na występowanie trzech takich samych znaków obok siebie (podpowiedź: dowolny znak to (.) ) **lub** prostych sekwencji cyfr/ liter (takich jak 1234, abcd lub zxcv) .
 2. Podaj liczbę haseł, które zawierają co najmniej jedną wielką literę, jedną małą literę, jedną cyfrę i jeden znak specjalny.
 
 ### SEKCJA C: zmiana treści wg. wzorca
