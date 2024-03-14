@@ -26,19 +26,14 @@ Zadania do wykonania:
 2. Podaj liczbę haseł, które zawierają znaki z zakresu: mala lub wielka litera, dowolna cyfra, znaki specjalne z zakresu **@$!%*?&** i gdzie ciąg ma minimum 8 znaków.
 
 ### SEKCJA C: zmiana treści wg. wzorca
-Napisz program, który używa funkcji sub z modułu re, aby zanonimizować imiona i nazwiska w podanym tekście, pozostawiając jedynie pierwszą literę imienia i nazwiska oraz zastępując resztę liter gwiazdkami (*), tak aby zachować tę samą długość oryginalnego imienia i nazwiska.
-#### Wymagania:
-
-Program powinien identyfikować różne formaty numerów telefonów - w tym międzynarodowe numery zaczynające się od + oraz potencjalne spacje czy myślniki w numerach
-- Każdy numer telefonu powinien zostać zanonimizowany do postaci: kod kierunkowy + " *****", gdzie liczba gwiazdek odpowiada długości oryginalnego numeru bez kodu kierunkowego.
-- Tekst na wejściu może zawierać różne numery telefonów z różnych krajów.
+Napisz program, który używa funkcji sub z modułu re, aby zanonimizować adresy email w podanym tekście. Program powinien zastąpić część lokalną adresu email (wszystko przed znakiem "@") gwiazdkami (*), zachowując domenę i tld (top-level domain).#### Wymagania:
 
 ```
-tekst = "W dniu wczorajszym spotkanie miało miejsce między Aleksandrem Kowalskim a Ewą Nowak. Dyskusja dotyczyła nowych projektów."
+"Kontakt do naszych pracowników: Jan Kowalski - jan.kowalski@example.com, Anna Nowak - anna.nowak@company.org. Prosimy o przesyłanie wszelkich zapytań na te adresy."
 ```
 powinien w wyniku działania na ekranie wyświetlić
 ```
-"W dniu wczorajszym spotkanie miało miejsce między A********* K******* a E** N***. Dyskusja dotyczyła nowych projektów."
+"Kontakt do naszych pracowników: Jan Kowalski - ************@example.com, Anna Nowak - ***********@company.org. Prosimy o przesyłanie wszelkich zapytań na te adresy."
 ```
 
 #### Podpowiedź
