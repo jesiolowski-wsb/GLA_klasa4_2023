@@ -22,12 +22,11 @@ aaaBBBccc
 ```
 
 Zadania do wykonania:
-1. Podaj liczbę haseł, które są uznawane za słabe ze względu na występowanie trzech takich samych znaków obok siebie (podpowiedź: dowolny znak to (.) ) **lub** prostych sekwencji cyfr/ liter (takich jak 1234, abcd lub zxcv) .
+1. Podaj liczbę haseł, które są uznawane za słabe ze względu na występowanie trzech takich samych znaków obok siebie (podpowiedź: dowolny znak to (.) ) **lub** prostych sekwencji cyfr/ liter (takich jak 1234, abcd lub zxcv).
 2. Podaj liczbę haseł, które zawierają znaki z zakresu: mala lub wielka litera, dowolna cyfra, znaki specjalne z zakresu **@$!%*?&** i gdzie ciąg ma minimum 8 znaków.
 
 ### SEKCJA C: zmiana treści wg. wzorca
-Napisz program który używa funkcji sub z modułu re aby zanonimizować numery telefonów w podanym tekście. Program powinien zachować numery kierunkowe krajów (np. +48 dla Polski), ale zastąpić resztę numeru telefonu gwiazdkami * tak, aby ukryć rzeczywiste numery telefonów.
-
+Napisz program, który używa funkcji sub z modułu re, aby zanonimizować imiona i nazwiska w podanym tekście, pozostawiając jedynie pierwszą literę imienia i nazwiska oraz zastępując resztę liter gwiazdkami (*), tak aby zachować tę samą długość oryginalnego imienia i nazwiska.
 #### Wymagania:
 
 Program powinien identyfikować różne formaty numerów telefonów - w tym międzynarodowe numery zaczynające się od + oraz potencjalne spacje czy myślniki w numerach
@@ -35,11 +34,11 @@ Program powinien identyfikować różne formaty numerów telefonów - w tym mię
 - Tekst na wejściu może zawierać różne numery telefonów z różnych krajów.
 
 ```
-tekst = "Kontakt do naszych oddziałów: Warszawa +48 123 456 789, Berlin +49 234 567 890, Nowy Jork +1 987 654 3210, Londyn +44-843-243-3224"
+tekst = "W dniu wczorajszym spotkanie miało miejsce między Aleksandrem Kowalskim a Ewą Nowak. Dyskusja dotyczyła nowych projektów."
 ```
 powinien w wyniku działania na ekranie wyświetlić
 ```
-Kontakt do naszych oddziałów: Warszawa +48 *********, Berlin +49 *********, Nowy Jork +1 **********, Londyn +44 **********
+"W dniu wczorajszym spotkanie miało miejsce między A********* K******* a E** N***. Dyskusja dotyczyła nowych projektów."
 ```
 
 #### Podpowiedź
