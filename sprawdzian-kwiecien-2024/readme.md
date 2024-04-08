@@ -1,7 +1,12 @@
 # Zadanie 1: Analiza tekstu (Podstawowe)
 Cel: Sprawdzenie umiejętności analizy i przetwarzania tekstu.
 
-Treść: Napisz program w języku Python, który wczyta tekst z pliku tekst.txt, a następnie wyświetli statystyki: ilość słów, ilość unikalnych słów oraz najczęściej występujące słowo w tekście. Zakładamy, że słowa są rozdzielone jednym lub więcej znakami białymi (spacje, nowe linie itp.). Wszystkie słowa należy traktować jako case-insensitive (bez rozróżnienia wielkości liter).
+Treść: Napisz program w języku Python, który wczyta tekst z pliku **tekst.txt**, a następnie wyświetli statystyki: 
+- ilość słów,
+- ilość unikalnych słów
+- najczęściej występujące słowo w tekście.
+-
+- Zakładamy, że słowa są rozdzielone jednym lub więcej znakami białymi (spacje, nowe linie itp.). Wszystkie słowa należy traktować jako case-insensitive (bez rozróżnienia wielkości liter).
 
 # Zadanie 2: Operacje na listach i plikach (Średniozaawansowane)
 Cel: Sprawdzenie umiejętności pracy z listami i plikami.
