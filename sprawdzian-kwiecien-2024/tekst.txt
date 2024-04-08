@@ -1,0 +1,3 @@
+To jest przykładowy tekst do analizy. W tekście tym występują różne słowa, w tym również powtarzające się słowa.
+Analiza tekstu jest ważnym elementem nauki programowania. Programowanie pozwala na przetwarzanie danych tekstowych w różny sposób.
+Tekst ten zawiera różne słowa, w tym słowo 'tekst' występujące kilkukrotnie.
