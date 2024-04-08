@@ -8,7 +8,7 @@ Treść: Napisz program w języku Python, który wczyta tekst z pliku **tekst.tx
 
 Zakładamy, że słowa są rozdzielone jednym lub więcej znakami białymi (spacje, nowe linie itp.). Wszystkie słowa należy traktować jako case-insensitive (bez rozróżnienia wielkości liter).
 
-> ### wynik:
+> **wynik**:
 > Ilość słów: 45, Ilość unikalnych słów: 36, Najczęściej występujące słowo: w
 
 
