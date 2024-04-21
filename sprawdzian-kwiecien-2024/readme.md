@@ -7,8 +7,9 @@ Treść: Napisz program w języku Python, który wczyta tekst z pliku **tekst.tx
 - najczęściej występujące słowo w tekście.
 
 Zakładamy, że słowa są rozdzielone jednym lub więcej znakami białymi (spacje, nowe linie itp.). Wszystkie słowa należy traktować jako case-insensitive (bez rozróżnienia wielkości liter).
+Samodzielnie zdecyduj czym jest unikalne słowo tj. czy np ciąg znaków 'słowa,' to to samo co 'słowa.', a może to samo co 'Słowa'?
 
-> **wynik**: 
+> **wynik poglądowy dla jednego z wariantów**: 
 > Ilość słów: 45, Ilość unikalnych słów: 36, Najczęściej występujące słowo: w
 
 
