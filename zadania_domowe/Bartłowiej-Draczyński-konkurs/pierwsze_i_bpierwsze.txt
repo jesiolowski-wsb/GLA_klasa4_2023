@@ -1,0 +1,28 @@
+def is_prime(n):
+  if n < 2:
+    return False
+  for i in range(2, int(n**0.5) + 1):
+    if n % i == 0:
+      return False
+  return True
+
+def is_Bprime(n):
+  if is_prime(n) == False:
+    return False
+  o = []
+  for i in range(0, len(str(n))):
+    o.append(int(str(n)[i]))
+  if is_prime(sum(o)) == False:
+    return False
+  l = []
+  for i in range(0, len(str(bin(n)[2:]))):
+    l.append(int(str(bin(n)[2:])[i]))
+  if is_prime(sum(l)) == False:
+    return False
+  return True
+    
+for i in range(1, 2138):
+  if is_Bprime(i) == True:
+    print(i)
+
+print("wypisywanie liczb pierwszych i sprawdzanie bpierwszych")

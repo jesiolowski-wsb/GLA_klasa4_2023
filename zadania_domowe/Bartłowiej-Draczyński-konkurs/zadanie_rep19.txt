@@ -1,0 +1,63 @@
+import math
+
+def wczytaj_dane():
+    with open("oddzialy.txt", "r") as plik:
+        oddzialy = [tuple(map(int, linia.strip().split())) for linia in plik.readlines()]
+    return oddzialy
+
+def zadanie_19_1(oddzialy):
+    straty = 0
+    oddzialy_poza_zasiegiem = 0
+
+    for x, y in oddzialy:
+        odleglosc = math.sqrt(x**2 + y**2)
+        if odleglosc > 20:
+            oddzialy_poza_zasiegiem += 1
+        elif odleglosc <= 20 and odleglosc >= 1:
+            if odleglosc == 20 or odleglosc == 1:
+                straty += 25
+            else:
+                straty += 100
+
+    return straty, oddzialy_poza_zasiegiem
+
+def zadanie_19_2(oddzialy):
+    najmniejszy_zasieg = 20
+    for x, y in oddzialy:
+        odleglosc = math.sqrt(x**2 + y**2)
+        if odleglosc > najmniejszy_zasieg:
+            najmniejszy_zasieg = odleglosc
+    return round(najmniejszy_zasieg, 3)
+
+def zadanie_19_3(oddzialy):
+    najwiecej_zniszczonych = 0
+    wspolrzedne = (0, 0)
+
+    for i in range(-20, 21):
+        for j in range(-20, 21):
+            if i == 0 and j == 0:
+                continue
+
+            zniszczeni = 0
+            for x, y in oddzialy:
+                odleglosc = math.sqrt((x - i)**2 + (y - j)**2)
+                if odleglosc <= 2:
+                    if odleglosc == 2:
+                        zniszczeni += 25
+                    else:
+                        zniszczeni += 100
+
+            if zniszczeni > najwiecej_zniszczonych:
+                najwiecej_zniszczonych = zniszczeni
+                wspolrzedne = (i, j)
+
+    return wspolrzedne, najwiecej_zniszczonych
+
+def main():
+    oddzialy = wczytaj_dane()
+    print("Zadanie 19.1:", zadanie_19_1(oddzialy))
+    print("Zadanie 19.2:", zadanie_19_2(oddzialy))
+    print("Zadanie 19.3:", zadanie_19_3(oddzialy))
+
+if __name__ == "__main__":
+    main()

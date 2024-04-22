@@ -1,0 +1,82 @@
+# 5.1
+m = {}
+with open("soki.txt", "r") as f:
+    next(f) 
+    for l in f:
+        _, _, z, w = l.split("\t")
+        m[z] = m.get(z, 0) + 1
+
+# 5.2
+o = []
+with open("soki.txt", "r") as f:
+    next(f)  
+    for l in f:
+        _, d, z, _ = l.split("\t")
+        if z == "Ogrodzieniec":
+            o.append(d)
+
+md = 0
+sd = ""
+ed = ""
+if o:
+    cd = o[0]
+    c = 1
+    for dt in o[1:]:
+        if dt == cd:
+            c += 1
+        else:
+            if c > md:
+                md = c
+                sd = cd
+                ed = o[o.index(cd) + c - 1]
+            c = 1
+            cd = dt
+    if c > md:
+        md = c
+        sd = cd
+        ed = o[-1]
+
+# 5.3
+wz = {}
+with open("soki.txt", "r") as f:
+    next(f)  
+    for l in f:
+        _, _, z, w = l.split("\t")
+        wz[z] = wz.get(z, 0) + int(w)
+
+# 5.4
+fpz = None
+zf = 0
+bpdf = 0
+bwzg = 9680  
+with open("soki.txt", "r") as f:
+    next(f)  
+    for l in f:
+        n, d, z, w = l.split("\t")
+        if bwzg >= int(w):
+            bwzg -= int(w)
+            if fpz is None:
+                fpz = (d, n)
+        else:
+            zf += 1
+            bpdf += int(w)
+
+# 5.5
+bp = 0
+with open("soki.txt", "r") as f:
+    next(f)  
+    for l in f:
+        _, _, _, w = l.split("\t")
+        bp += int(w)
+
+dr = 5 * 12_000
+dw = 2 * 5_000
+if bp > dr:
+    bp -= dr
+    bp += dw
+
+print("Zadanie 5.1:", m)
+print("Zadanie 5.2:", md, sd, ed)
+print("Zadanie 5.3:", wz)
+print("Zadanie 5.4:", fpz, zf, bpdf)
+print("Zadanie 5.5:", bp)

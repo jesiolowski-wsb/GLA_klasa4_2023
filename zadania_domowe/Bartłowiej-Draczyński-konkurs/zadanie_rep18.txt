@@ -1,0 +1,52 @@
+def read_file(file_name):
+    with open(file_name) as f:
+        lines = f.readlines()
+    return [line.strip().split() for line in lines]
+
+def determine_base(numbers):
+    bases = []
+    for number_set in numbers:
+        first_number = number_set[0]
+        second_number = number_set[1]
+        third_number = number_set[2]
+        for base in range(2, 17):
+            try:
+                if int(first_number, base) + int(second_number, base) == int(third_number, base):
+                    bases.append(base)
+                    break
+            except ValueError:
+                continue
+    return bases
+
+def min_max_value(numbers, bases):
+    values = []
+    for i in range(len(numbers)):
+        number_set = numbers[i]
+        base = bases[i]
+        values.extend([int(number_set[j], base) for j in range(3)])
+    return min(values), max(values)
+
+def digit_frequency(numbers, bases):
+    frequency = {str(i): 0 for i in range(10)}
+    frequency.update({chr(ord('A') + i): 0 for i in range(6)})
+    total_digits = 0
+    for i in range(len(numbers)):
+        number_set = numbers[i]
+        base = bases[i]
+        for j in range(3):
+            value = int(number_set[j], base)
+            digits = list(number_set[j])
+            total_digits += len(digits)
+            for digit in digits:
+                frequency[digit] += 1
+    frequency_percentage = {key: round((value / total_digits) * 100, 2) for key,value in frequency.items()}
+    return frequency_percentage
+
+numbers = read_file('trzyliczby.txt')
+bases = determine_base(numbers)
+min_value, max_value = min_max_value(numbers,bases)
+frequency_percentage=digit_frequency(numbers,bases)
+
+print(f'Zadanie 18.1: {bases}')
+print(f'Zadanie 18.2: Najmniejsza wartosc {min_value} największa {max_value}')
+print(f'Zadanie 18.3: Czestotliwosc wystapien cyfr {frequency_percentage}')

@@ -1,0 +1,38 @@
+def read_file(file_name):
+    with open(file_name) as f:
+        lines = f.readlines()
+    return [line.strip().split() for line in lines]
+
+def is_anagram(word1, word2):
+    return sorted(word1) == sorted(word2)
+
+def count_anagrams(words):
+    count = 0
+    for word_pair in words:
+        if is_anagram(*word_pair):
+            count += 1
+    return count
+
+def find_letter_swap(words):
+    results = []
+    for word_pair in words:
+        if not is_anagram(*word_pair):
+            word1 = word_pair[0]
+            word2 = word_pair[1]
+            if len(word1) == len(word2):
+                for i in range(len(word2)):
+                    temp_word2 = list(word2)
+                    temp_word2[i] = word1[i]
+                    if is_anagram(word1, ''.join(temp_word2)):
+                        results.append((word_pair[0], word_pair[1], i+1, word1[i]))
+                        break
+    return results
+
+words = read_file('anagramy.txt')
+anagrams_count = count_anagrams(words)
+letter_swaps = find_letter_swap(words)
+
+print(f'Zadanie 20.1: Pary wyrazow bedace anagramami {anagrams_count}')
+print(f'Zadanie 20.2: Pary wyrazow i wymiana liter:')
+for swap in letter_swaps:
+    print(f'{swap[0]} {swap[1]} {swap[2]} {swap[3]}')

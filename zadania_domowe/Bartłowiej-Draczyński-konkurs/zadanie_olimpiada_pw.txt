@@ -1,0 +1,18 @@
+import random
+
+def simulate_probability(trials):
+    success_count = 0
+    for _ in range(trials):
+        # lista 6 od 1 do 10
+        sequence = sorted(random.sample(range(1, 11), 6))
+        # sprawdza czy 3 jest 3
+        if sequence[2] == 3:
+            success_count += 1
+    return success_count / trials
+
+# liczba prob
+trials = 1000000
+
+# przeprowadz symulacje
+probability = simulate_probability(trials)
+print(f"szansa na to ze 3 lcizba rosnacego ciagu 6 liczb od 1 do 10 to okolo {probability:.4f} bazujac na tylu probach: {trials}.")

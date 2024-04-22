@@ -1,0 +1,86 @@
+def cp(m, n):
+    l = (int(m[0]) * int(n[1])) - (int(m[1]) * int(n[0]))
+    return l
+
+
+def dziebrama(XP, YP, XL, YL):
+
+    XP = int(XP)
+    YP = int(YP)
+    XL = int(XL)
+    YL = int(YL)
+
+    if XP > 0 and YP > 0 and XL > 0 and YL > 0:
+        return 1
+    if XP < 0 and YP > 0 and XL < 0 and YL > 0:
+        return 2
+    if XP < 0 and YP < 0 and XL < 0 and YL < 0:
+        return 3
+    if XP > 0 and YP < 0 and XL > 0 and YL < 0:
+        return 4
+
+
+def dziepila(XP, YP, XL, YL, dx, dy):
+    A = [XP, YP]
+    B = [XL, YL]
+    D = [dx, dy]
+
+    cp_AD = cp(A, D)
+    cp_BD = cp(B, D)
+
+    if cp_AD > 0 > cp_BD:
+        return "Gol"
+    if cp_AD == 0 or cp_BD == 0:
+        return "Slupek"
+    else:
+        return "Pudlo"
+
+
+strzaly = []
+
+with open("karny.txt", "r") as f:
+    for fs in f:
+        wektor = fs.strip().split()
+        strzaly.append(wektor)
+
+print(strzaly)
+
+gol = 0
+slupek = 0
+pudlo = 0
+
+for shot in strzaly:
+    if dziepila(shot[0], shot[1], shot[2], shot[3], shot[4], shot[5]) == "Gol":
+        gol += 1
+    if dziepila(shot[0], shot[1], shot[2], shot[3], shot[4], shot[5]) == "Slupek":
+        slupek += 1
+    if dziepila(shot[0], shot[1], shot[2], shot[3], shot[4], shot[5]) == "Pudlo":
+        pudlo += 1
+
+i1 = 0
+i2 = 0
+i3 = 0
+i4 = 0
+
+
+for shot in strzaly:
+    if dziebrama(shot[0], shot[1], shot[2], shot[3]) == 1:
+        i1 += 1
+    if dziebrama(shot[0], shot[1], shot[2], shot[3]) == 2:
+        i2 += 1
+    if dziebrama(shot[0], shot[1], shot[2], shot[3]) == 3:
+        i3 += 1
+    if dziebrama(shot[0], shot[1], shot[2], shot[3]) == 4:
+        i4 += 1
+
+
+
+print(i1)
+print(i2)
+print(i3)
+print(i4)
+
+
+print(gol)
+print(slupek)
+print(pudlo)

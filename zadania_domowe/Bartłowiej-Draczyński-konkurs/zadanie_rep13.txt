@@ -1,0 +1,46 @@
+def zmiana(x, podstawa):
+    if podstawa not in [5, 7, 13]:
+        return "Podstawa musi być równa 3, 7 lub 13"
+
+    if x == 0:
+        return "0"
+
+    cyfry = "0123456789ABCDEF"  # cyfry z dziesietnego
+
+    reszty = []
+    while x > 0:
+        reszta = x % podstawa
+        reszty.append(cyfry[reszta])
+        x //= podstawa
+
+    reszty.reverse()  # odwroc reszty
+
+    return ''.join(reszty)
+
+
+def samo(n):
+    if bin(int(n))[2:].count("0") == bin(int(n))[2:].count("1"):
+        return True
+    else:
+        return False
+
+
+liczby = []
+max5 = 0
+max7 = 0
+max13 = 0
+
+
+
+with open("liczby13.txt") as f:
+    for line in f:
+        liczby.append(line.strip())
+
+ile = 0
+
+for liczba in liczby:
+    if samo(liczba):
+        ile += 1
+    if zmiana(liczba, 5).count("4") ==
+
+print(ile)

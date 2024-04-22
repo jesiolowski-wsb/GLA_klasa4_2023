@@ -1,0 +1,23 @@
+with open("liczby.txt", "r") as f:
+    liczby = [i.strip() for i in f]
+
+liczby10 = [int(i, 2) for i in liczby]
+
+w0niz1 = 0
+p2 = 0
+p8 = 0
+
+for liczba in liczby:
+    if liczba.count("0") > liczba.count("1"):
+        w0niz1 += 1
+    if int(liczba, 2) % 2 == 0:
+        p2 += 1
+    if int(liczba, 2) % 8 == 0:
+        p8 += 1
+
+
+print(w0niz1)
+print(p2)
+print(p8)
+print(min(liczby10), liczby10.index(min(liczby10)) + 1)
+print(max(liczby10), liczby10.index(max(liczby10)) + 1)

@@ -1,0 +1,27 @@
+from collections import Counter
+
+def read_file(file_name):
+    with open(file_name) as f:
+        lines = f.readlines()
+    return [line.strip().split('.') for line in lines]
+
+def most_common_package_type(packages):
+    package_types = [package[0][:3] for package in packages]
+    package_type_counts = Counter(package_types)
+    most_common_package_type = package_type_counts.most_common(1)[0]
+    return most_common_package_type
+
+def name_counts(packages):
+    names = [package[1].upper() for package in packages]
+    name_counts = Counter(names)
+    sorted_name_counts = sorted(name_counts.items(), key=lambda x: (-x[1], x[0]))
+    return sorted_name_counts
+
+packages = read_file('dane.txt')
+most_common_package_type, count = most_common_package_type(packages)
+sorted_name_counts = name_counts(packages)
+
+print(f'Zadanie 24.1: Najczesniej przesylka {most_common_package_type} i bylo ich {count}')
+print(f'Zadanie 24.2: wystapienia poszczegolnych imion:')
+for name_count in sorted_name_counts:
+    print(f'{name_count[0]}: {name_count[1]}')

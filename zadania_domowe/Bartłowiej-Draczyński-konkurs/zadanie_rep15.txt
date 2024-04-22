@@ -1,0 +1,47 @@
+import math
+
+def jestPierwsza(n):
+  if n < 2:
+    return False
+  for i in range (2, int(math.sqrt(n))+1):
+    if n % i == 0:
+      return False
+  return True
+
+def sumaCyfr(a):
+  s = str(a)
+  suma = 0
+  for cyfra in s:
+    suma += int(cyfra)
+  return suma
+
+def jestSPierwsza(x):
+  if jestPierwsza(int(sumaCyfr(x))):
+    return True
+  else:
+    return False
+
+def jestBSPierwsza(z):
+  if jestPierwsza(int(sumaCyfr(bin(z)[2:]))):
+    return True
+  else:
+    return False
+
+f = open("liczby15.txt", "r")
+pierwsza = 0
+BSPierwsza = []
+liczby = []
+for line in f:
+  n = int(line)
+  liczby.append(n)
+  if jestPierwsza(n) == True:
+    pierwsza += 1
+
+for n in liczby:
+  if jestBSPierwsza(int(jestSPierwsza(n))):
+    BSPierwsza.append(n)
+
+f.close()
+
+print(f"W pliku jest {pierwsza} liczb pierwszych.")
+print(f"Liczby B-superpierwsze: {sorted(BSPierwsza)}")

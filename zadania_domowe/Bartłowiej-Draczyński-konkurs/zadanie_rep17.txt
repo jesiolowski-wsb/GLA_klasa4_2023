@@ -1,0 +1,59 @@
+def check_pesel(pesel):
+    weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3]
+    control_sum = sum([int(pesel[i]) * weights[i] for i in range(10)]) % 10
+    if control_sum == 0:
+        control_sum = 10
+    control_sum = 10 - control_sum
+    return int(pesel[10]) == control_sum
+
+with open("pesel.txt", "r") as f:
+    lines = f.readlines()
+
+parzyste = 0
+nieparzyste = 0
+bledny = []
+
+
+pon18 = 0
+od19do50 = 0
+od51do100 = 0
+pow100 = 0
+for line in lines:
+    line = line.strip()
+    if int(line[9]) % 2 == 0:
+        parzyste += 1
+    else:
+        nieparzyste += 1
+    if check_pesel(line) == False:
+        bledny.append(line)
+
+
+def check_age(pesel):
+    year = int(pesel[:2])
+    month = int(pesel[2:4])
+    year += 1900 + (month > 20) * 100
+    month -= (month > 20) * 20
+
+    return 2022 - year
+  
+for line in lines:
+  if check_age(line) <= 18:
+    pon18 += 1
+  elif check_age(line) <= 50:
+    od19do50 += 1
+  elif check_age(line) <= 100:
+    od51do100 += 1
+  else:
+    pow100 += 1
+  
+    
+        
+
+print(f"Mezczyzn {nieparzyste}.")
+print(f"Kobiet {parzyste}.")
+print(f"Bledne pesele: {bledny}.")
+
+print(f"Ponizej 18 lat {pon18}")
+print(f"Miedzy 19 a 50 lat {od19do50}")
+print(f"miedzy 51 a 100 lat {od51do100}")
+print(f"Powyzej 100 lat {pow100}")

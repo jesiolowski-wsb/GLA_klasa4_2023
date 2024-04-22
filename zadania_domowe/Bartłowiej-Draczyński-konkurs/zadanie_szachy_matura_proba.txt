@@ -1,0 +1,62 @@
+# 1.1
+with open('szachy.txt', 'r') as f:
+    data = f.read().split('\n\n')[:-1]
+    empty_cols = []
+    max_empty_cols = 0
+    for board in data:
+        board = board.split('\n')
+        empty_cols_count = 0
+        for col in range(8):
+            if all(board[row][col] == '.' for row in range(8)):
+                empty_cols_count += 1
+        empty_cols.append(empty_cols_count)
+        max_empty_cols = max(max_empty_cols, empty_cols_count)
+    print(f"Plansze z conajmniej jedna pusta kolumna: {sum(empty_cols)}")
+    print(f"Największa liczba pustych kolumn na jednej planszy: {max_empty_cols}")
+
+# 1.2
+with open('szachy.txt', 'r') as f:
+    data = f.read().split('\n\n')[:-1]
+    equilibrium_count = 0
+    min_pieces = float('inf')
+    for board in data:
+        board = board.split('\n')
+        white_count = 0
+        black_count = 0
+        for row in range(8):
+            for col in range(8):
+                if board[row][col].isupper():
+                    white_count += 1
+                elif board[row][col].islower():
+                    black_count += 1
+        if white_count == black_count:
+            equilibrium_count += 1
+            min_pieces = min(min_pieces, white_count + black_count)
+    print(f"plansze w stanie rownowagi: {equilibrium_count}")
+    print(f"najmniejsza liczba bierek u nich: {min_pieces}")
+
+# 1.3
+with open('szachy.txt', 'r') as f:
+    data = f.read().split('\n\n')[:-1]
+    white_rook_count = 0
+    black_rook_count = 0
+    for board in data:
+        board = board.split('\n')
+        white_king_pos = None
+        black_king_pos = None
+        for row in range(8):
+            for col in range(8):
+                if board[row][col] == 'K':
+                    white_king_pos = (row, col)
+                elif board[row][col] == 'k':
+                    black_king_pos = (row, col)
+                elif board[row][col] == 'W':
+                    if white_king_pos and (row == white_king_pos[0] or col == white_king_pos[1]):
+                        if all(board[row][c] == '.' for c in range(min(col, white_king_pos[1])+1, max(col, white_king_pos[1]))):
+                            white_rook_count += 1
+                elif board[row][col] == 'w':
+                    if black_king_pos and (row == black_king_pos[0] or col == black_king_pos[1]):
+                        if all(board[row][c] == '.' for c in range(min(col, black_king_pos[1])+1, max(col, black_king_pos[1]))):
+                            black_rook_count += 1
+    print(f"biala wieza szachuje czarnego krola: {white_rook_count}")
+    print(f"czarna wieza szachuje bialego krola: {black_rook_count}")

@@ -1,0 +1,70 @@
+with open("liczby.txt", 'r') as f:
+    liczby = [int(x) for x in f.read().split()]
+
+print(min(liczby))
+print(max(liczby))
+
+licznik = []
+licznik1 = 0
+for liczba in liczby:
+    if liczba in licznik:
+        licznik1 += 1
+    licznik.append(liczba)
+
+print(licznik1)
+
+podz13 = []
+for liczba in liczby:
+    if liczba % 13 == 0:
+        podz13.append(liczba)
+
+print(podz13)
+print(sorted(podz13))
+
+tyle1co0 = []
+for liczba in liczby:
+    binarna = bin(liczba)[2:]
+    if binarna.count("1") == binarna.count("0"):
+        tyle1co0.append(liczba)
+
+print(tyle1co0)
+
+dzielniki = {}
+najlepsze = []
+for i in range(11, 21, 2):
+    ile = 0
+    for liczba in liczby:
+        if liczba % i == 0:
+            ile += 1
+    dzielniki[i] = ile
+
+najlepszy = max(dzielniki, key=lambda k: dzielniki[k])
+for liczba in liczby:
+    if liczba % najlepszy == 0:
+        najlepsze.append(liczba)
+
+print(najlepszy)
+print(len(najlepsze))
+print(najlepsze)
+
+
+g = open("wynik.txt", "w")
+g.write("2a:\n")
+g.write(str(min(liczby)) + "\n")
+g.write(str(max(liczby)) + "\n")
+g.write("2b:\n")
+g.write(str(licznik1) + "\n")
+g.write("2c:\n")
+g.write(" ".join(str(x) for x in podz13) + "\n")
+g.write("2d:\n")
+g.write(" ".join(str(x) for x in sorted(podz13)) + "\n")
+g.write("2e:\n")
+g.write(" ".join(str(x) for x in tyle1co0) + "\n")
+g.close()
+
+z = open("liczby_w.txt", "w")
+z.write("2f:\n")
+z.write(str(najlepszy) + "\n")
+z.write(str(len(najlepsze)) + "\n")
+z.write("\n".join(str(x) for x in najlepsze) + "\n")
+z.close()

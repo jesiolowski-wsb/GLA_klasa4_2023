@@ -1,0 +1,18 @@
+with open("cukier.txt", "r") as f:
+    zamowienia = [i.strip().split() for i in f]
+
+zakupy = {}
+rabaty = 0
+
+for zamowienie in zamowienia:
+    ile = int(zamowienie[2])
+    zakupy[zamowienie[1]] = zakupy.get(zamowienie[1], 0) + ile
+
+    if 1000 > zakupy.get(zamowienie[1], 0) >= 100:
+        rabaty += 0.05*int(zamowienie[2])
+    if 10000 > zakupy.get(zamowienie[1], 0) >=1000:
+        rabaty += 0.1 * int(zamowienie[2])
+    if zakupy.get(zamowienie[1], 0) >= 10000:
+        rabaty += 0.2 * int(zamowienie[2])
+
+print(rabaty)

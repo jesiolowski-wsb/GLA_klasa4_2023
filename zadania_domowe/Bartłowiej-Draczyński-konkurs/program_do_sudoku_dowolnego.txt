@@ -1,0 +1,59 @@
+N = 9
+
+def drukuj(plansza):
+  for i in range(N):
+    for j in range(N):
+      print(plansza[i][j], end=" ")
+    print()
+
+def bezpieczna(plansza, wiersz, kolumna, wartosc):
+  for j in range(N):
+    if plansza[wiersz][j] == wartosc:
+      return False
+  for i in range(N):
+    if plansza[i][kolumna] == wartosc:
+      return False
+  x = (wiersz // 3) * 3
+  y = (kolumna // 3) * 3
+  for i in range(x, x + 3):
+    for j in range(y, y + 3):
+      if plansza[i][j] == wartosc:
+        return False
+  return True
+
+def rozwiaz(plansza, wiersz, kolumna):
+  if wiersz == N - 1 and kolumna == N:
+    return True
+  if kolumna == N:
+    wiersz += 1
+    kolumna = 0
+  if plansza[wiersz][kolumna] > 0:
+    return rozwiaz(plansza, wiersz, kolumna + 1)
+  for wartosc in range(1, N + 1):
+    if bezpieczna(plansza, wiersz, kolumna, wartosc):
+      plansza[wiersz][kolumna] = wartosc
+      if rozwiaz(plansza, wiersz, kolumna + 1):
+        return True
+      plansza[wiersz][kolumna] = 0
+  return False
+
+plansza = [
+  [5, 0, 7, 0, 0, 6, 0, 1, 0],
+  [0, 0, 0, 1, 5, 0, 4, 0, 6],
+  [6, 0, 1, 0, 0, 0, 0, 0, 3],
+  [0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [0, 0, 0, 0, 4, 0, 8, 0, 7],
+  [7, 0, 0, 8, 0, 0, 6, 0, 9],
+  [0, 7, 0, 4, 0, 0, 0, 6, 0],
+  [9, 0, 0, 0, 6, 3, 0, 8, 0],
+  [1, 0, 5, 9, 0, 0, 0, 7, 0]
+]
+
+print("Plansza przed rozwiązaniem:")
+drukuj(plansza)
+
+if rozwiaz(plansza, 0, 0):
+  print("Plansza po rozwiązaniu:")
+  drukuj(plansza)
+else:
+  print("Plansza nie ma rozwiązania :(")

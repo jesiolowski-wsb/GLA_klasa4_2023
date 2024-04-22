@@ -1,0 +1,9 @@
+with open("kraina.txt", "r") as f:
+    wojs = [i.strip().split(';') for i in f]
+
+sektory13 = {}
+
+for woj in wojs:
+    sektory13[woj[0][3]] = sektory13.get(woj[0][3], 0) + int(woj[1]) + int(woj[2])
+
+print(sektory13)

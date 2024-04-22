@@ -1,0 +1,33 @@
+from sympy import primerange, isprime
+
+
+# funkcja do sprawdzania czy liczby spelniaja rownania
+def check_conditions(p, a, b, c, q):
+    return (p / a + p / b + p / c == 1) and (a / p + b / p + c / p == q + 1)
+
+
+# znajdowanie pierwszych
+def find_prime_pairs(max_limit):
+    prime_pairs = []
+    # Generowanie listy liczb pierwszych w zakresie
+    primes = list(primerange(2, max_limit))
+
+    for p in primes:
+        for q in primes:
+            if q <= p:
+                continue
+            for a in range(p + 1, max_limit):
+                for b in range(a, max_limit):  # b >= a
+                    for c in range(b, max_limit):  # c >= b
+                        if check_conditions(p, a, b, c, q):
+                            prime_pairs.append((p, q, a, b, c))
+    return prime_pairs
+
+
+# ustawienie maksymalnego limitu dla liczb pierwszych
+max_limit = 200 
+prime_pairs = find_prime_pairs(max_limit)
+
+# wyniki
+for pair in prime_pairs:
+    print(f"Liczby pierwsze (p, q): ({pair[0]}, {pair[1]}) oraz liczby (a, b, c): ({pair[2]}, {pair[3]}, {pair[4]})")

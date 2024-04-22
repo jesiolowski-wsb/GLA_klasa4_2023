@@ -1,0 +1,20 @@
+A = [
+    [3, 1, 5, 2, 4, 19, 7],
+    [52, 4, 4, 11, 3, 4, 45],
+    [3, 26, 18, 63, 42, 3, 4],
+    [6, 7, 4, 35, 76, 6, 33],
+    [4, 44, 2, 43, 4, 12, 44],
+    [7, 19, 42, 28, 20, 2, 25],
+    [99, 10, 85, 15, 42, 3, 6],
+    [24, 4, 23, 5, 70, 2, 24]
+]
+
+transponowana_macierz = []
+
+for i in range(len(A[0])):
+    nowy_wiersz = []
+    for j in range(len(A)):
+        nowy_wiersz.append(A[j][i])
+    transponowana_macierz.append(nowy_wiersz)
+
+print(transponowana_macierz)

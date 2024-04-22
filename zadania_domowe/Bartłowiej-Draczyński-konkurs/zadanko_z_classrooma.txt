@@ -1,0 +1,65 @@
+def count_divs(num):
+    count = 0
+    sqrt_num = int(num ** 0.5)
+    for i in range(1, sqrt_num + 1):
+        if num % i == 0:
+            count += 2  
+    if sqrt_num * sqrt_num == num:  
+        count -= 1
+    return count
+
+def find_max(start, end):
+    max_divs = 0
+    max_nums = []
+    for num in range(start, end + 1, 2):  
+        divs_count = count_divs(num)
+        if divs_count > max_divs:
+            max_divs = divs_count
+            max_nums = [num]
+        elif divs_count == max_divs:
+            max_nums.append(num)
+    return max_divs, max_nums
+
+def find_sqrt(start, end):
+    sqrt_nums = []
+    for num in range(start, end + 1):
+        sqrt_num = int(num ** 0.5)
+        if sqrt_num * sqrt_num == num:  
+            sqrt_nums.append((num, sqrt_num))
+    return sqrt_nums
+
+def count_nums(start, end, max_divs):
+    divs_count = [0] * (max_divs + 1)
+    for num in range(start, end + 1):
+        divs = count_divs(num)
+        divs_count[divs] += 1
+    return divs_count
+
+def sort_nums(start, end):
+    nums = list(range(start, end + 1))
+    nums.sort(key=lambda x: (count_divs(x), -x))  
+    return nums
+
+# zakres tych liczbek
+start = 1000
+end = 10000
+
+# a
+max_divs, max_nums = find_max(start, end)
+print("Liczby majace najwiecej dzielnikow (", max_divs, "dzielników):", max_nums)
+print("Ile ich jest:", len(max_nums))
+
+# b
+sqrt_nums = find_sqrt(start, end)
+print("Liczby ktrorych pierwiastek jest calkowity:")
+for num, sqrt_num in sqrt_nums:
+    print(num, "-", sqrt_num)
+
+# c
+divs_count = count_nums(start, end, max_divs)
+for i, count in enumerate(divs_count):
+    print("Ilosc liczb majacych", i, "dzielnikow:", count)
+
+# d
+sorted_nums = sort_nums(start, end)
+print("Posorowany zbior wedlug liczby dzielnikow:", sorted_nums)

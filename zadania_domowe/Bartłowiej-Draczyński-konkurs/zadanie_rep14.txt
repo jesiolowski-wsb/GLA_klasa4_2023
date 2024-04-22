@@ -1,0 +1,52 @@
+import math
+
+
+def jestFibonacci(n):
+    return jestKwadrat(5 * n * n + 4) or jestKwadrat(5 * n * n - 4)
+
+
+def jestKwadrat(x):
+    s = int(math.sqrt(x))
+    return s * s == x
+
+
+def isPrime(p):
+    if p < 2:
+        return False
+    for i in range(2, int(math.sqrt(p)) + 1):
+        if p % i == 0:
+            return False
+    return True
+
+
+f = open("liczby14.txt", "r")
+fibonacci = 0
+numbers = []
+for line in f:
+    n = int(line)
+    numbers.append(n)
+    if jestFibonacci(n) is True:
+        fibonacci += 1
+
+odl1 = []
+odl2 = []
+odl3 = []
+primeFib = []
+
+for n in numbers:
+    if isPrime(n):
+        if jestFibonacci(n):
+            primeFib.append(n)
+    if jestFibonacci(n) is False:
+        if jestFibonacci(n - 1) or jestFibonacci(n + 1):
+            odl1.append(n)
+        if jestFibonacci(n - 2) or jestFibonacci(n + 2):
+            odl2.append(n)
+        if jestFibonacci(n - 3) or jestFibonacci(n + 3):
+            odl3.append(n)
+
+print(f"ile liczb z ciagu fibonacciego: {fibonacci}")
+print(f"liczby blisko fibonacciego o 1:  {sorted(odl1)}")
+print(f"liczby blisko fibonacciego o 2:  {sorted(odl2)}")
+print(f"liczby blisko fibonacciego o 3:  {sorted(odl3)}")
+print(f"liczby pierwsze z ciagu fibonacciego: {sorted(primeFib)}")

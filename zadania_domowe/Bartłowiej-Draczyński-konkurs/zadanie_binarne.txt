@@ -1,0 +1,39 @@
+def suma(number):
+    numberr = []
+    for digit in number:
+        numberr.append(int(digit))
+    return sum(set(numberr))
+
+
+with open("anagram.txt", "r") as f:
+    liczby = [i.strip() for i in f.readlines()]
+
+z = 0
+pz = 0
+bz = 0
+
+for liczba in liczby:
+    if str(liczba).count("0") == str(liczba).count("1"):
+        z += 1
+    if abs(str(liczba).count("0") - str(liczba).count("1")) == 1:
+        pz += 1
+    if str(liczba).count("1") == 4 and str(liczba).count("0") == 4:
+        print(liczba)
+    elif str(liczba).count("1") == 5 and str(liczba).count("0") == 3:
+        print(liczba)
+    if str(int(liczba, 2)).count("0") == 0:
+        bz += 1
+
+print(z, pz)
+print(bz)
+
+roznice = []
+liczby10 = [int(i, 2) for i in liczby]
+sumy = [suma(str(i)) for i in liczby10]
+najw = liczby10[sumy.index(max(sumy))]
+
+for i in range(1, len(liczby)):
+    roznice.append(abs(int(liczby[i], 2) - int(liczby[i - 1], 2)))
+
+print(bin(max(roznice))[2:])
+print(najw)

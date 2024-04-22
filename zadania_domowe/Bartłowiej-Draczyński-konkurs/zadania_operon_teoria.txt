@@ -1,0 +1,25 @@
+1.1.
+
+
+with open("wiadomosc.txt","r") as f:
+text = f.readline().strip()
+licz = f.readline().strip()
+ops = f.readline().strip()
+
+lew = 0praw = 0sym = 0res = 0for op in ops:
+if op == "\\":
+	lew += 1
+elif op == "/":
+	praw += 1
+elif op == "|":
+	sym += 1
+elif op == "-":
+	res += 1
+print(f"Przesunięć w lewo jest {lew}")
+print(f"Przesunięć w prawo jest {praw}")
+print(f"Operacji symetria jest {sym}")
+print(f"Operacji reset jest {res}")
+
+
+6. FPP
+8. prymityw, jakości/rozdzielczości, mniejsza
